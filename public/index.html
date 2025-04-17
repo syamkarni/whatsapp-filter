@@ -4,21 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Chat Filter</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #e2f3fb, #f0f8ff, #d6ebf9);
+            padding: 1rem;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 144, 255, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .header {
+            background: linear-gradient(to right, #25D366, #075E54);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 1.875rem;
+            font-weight: bold;
+            letter-spacing: -0.025em;
+        }
+
+        .form-container {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #41525d;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="file"],
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background-color: rgba(219, 234, 254, 0.1);
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="file"] {
+            padding: 0.5rem;
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: none;
+            background-color: rgba(37, 211, 102, 0.1);
+            color: #25D366;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: rgba(37, 211, 102, 0.2);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #25D366;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #22bf5b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                margin: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>WhatsApp Chat Filter</h1>
-    <form id="filterForm">
-        <label for="fileInput">Upload WhatsApp Chat File:</label>
-        <input type="file" id="fileInput" name="fileInput" accept=".txt"><br><br>
+    <div class="container">
+        <div class="header">
+            <h1>WhatsApp Chat Filter</h1>
+        </div>
         
-        <label for="startDate">Start Date:</label>
-        <input type="datetime-local" id="startDate" name="startDate"><br><br>
-        
-        <label for="endDate">End Date:</label>
-        <input type="datetime-local" id="endDate" name="endDate"><br><br>
-        
-        <button type="submit">Filter and Download</button>
-    </form>
+        <div class="form-container">
+            <form id="filterForm">
+                <div class="form-group">
+                    <label for="fileInput">Upload WhatsApp Chat File</label>
+                    <input type="file" id="fileInput" name="fileInput" accept=".txt">
+                </div>
+                
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="datetime-local" id="startDate" name="startDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="datetime-local" id="endDate" name="endDate">
+                </div>
+                
+                <button type="submit">Filter and Download</button>
+            </form>
+        </div>
+    </div>
     
     <script src="app.js"></script>
 </body>
