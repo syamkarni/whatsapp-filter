@@ -47,8 +47,4 @@ You can use the tool here:
 
 ---
 
-## Upcoming Features
 
-- Pre-built integration with AI summarization (future plan!)
-- Automatic file splitting for very large files
-- UI improvements for better mobile support
